@@ -27,18 +27,18 @@ public class Main {
         }
     }
 
-    public static void determineDeliveryTime (short deliveryDistance) {
+    public static int determineDeliveryTime (short deliveryDistance) {
         if (deliveryDistance < 21) {
-            System.out.println("Потребуется дней: 1");
+            return 1;
         }
         else if (deliveryDistance < 61) {
-            System.out.println("Потребуется дней: 2");
+            return 2;
         }
         else if (deliveryDistance < 101) {
-            System.out.println("Потребуется дней: 3");
+            return 3;
         }
         else {
-            System.out.println("Доставки нет");
+            return 4;
         }
     }
 
@@ -49,6 +49,8 @@ public class Main {
         short clientDeviceYear = 2015;
         determineMessage(clientOS, clientDeviceYear);
         short distance = 95;
-        determineDeliveryTime(distance);
+        if (determineDeliveryTime(distance) == 4) {
+            System.out.println("Доставки нет");
+        } else System.out.println("Потребуется дней: " + determineDeliveryTime(distance));
     }
 }
